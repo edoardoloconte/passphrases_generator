@@ -1,0 +1,9 @@
+# Ignora l'ambiente virtuale
+.venv/
+
+# Cartella di configurazione PyCharm
+.idea/
+
+# Cache di Python
+__pycache__/
+*.pyc
