@@ -7,3 +7,6 @@
 # Cache di Python
 __pycache__/
 *.pyc
+
+#word_list_dicewa
+word_list_diceware_it-IT-3.txt
