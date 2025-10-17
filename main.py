@@ -3,11 +3,13 @@ from dices import Dices
 
 # Carica il dizionario diceware
 map = {}
+special_chars="!@#$%&*+-?="
 
 # Funzione per generare una parola dal numero dei dadi
 def genera_parola(map):
     dadi = Dices()
     number = dadi.get_number()
+
    #cerco nel dizionario la parola corrispondente a quel numero
     word = map.get(number)
     if word:
@@ -24,16 +26,16 @@ with open("word_list_diceware_it-IT-3.txt", "r") as f:
             map[parts[0]] = parts[1]
 
 # Genera 4 parole
-parole = []
+words_with_special = []
 for i in range(4):
     parola = genera_parola(map)
     if parola:
-        parole.append(parola)
+        special_char = secrets.choice(special_chars)  # un carattere speciale diverso
+        words_with_special.append(f"{parola}{ special_char}")
 
 # Crea la passphrase finale
-if parole:
-    passphrase = "-".join(parole)
+if words_with_special:
+    passphrase = ''.join(words_with_special)
     print(f"\nPassphrase: {passphrase}")
 else:
     print("Nessuna parola trovata.")
-
